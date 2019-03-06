@@ -28,11 +28,11 @@ INSTALLED_APPS = [
 
 ```python
 from django.conf import settings
-from django.db.models import ForeignKey, CASCADE
+from django.db.models import ForeignKey, CASCADE, Model
 from gst_field.modelfields import GSTField, PANField
 
-class Tax(models.Model):
-	user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+class Tax(Model):
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
     gstin = GSTField()
     pan = PANField()
 ```
